@@ -1,16 +1,9 @@
-import { useState } from "react";
 import Count from "./Count";
 import Button from "./Button";
 
 
-const Counter = () => {
-    const [count , setCount] = useState(0);
-    const handleIncrement = () => {
-        setCount(count + 1)
-    }
-    const handleDecrement = () => {
-        setCount(count - 1)
-    }
+const Counter = ({count , handleDecrement , handleIncrement}) => {
+  
     return (
         <div className="bg-white shadow-2xl p-4 flex justify-center flex-col items-center">
             <Count count={count}></Count>
