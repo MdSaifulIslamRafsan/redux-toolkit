@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Counter from "./component/Counter"
 import Stats from "./component/Stats"
 import { decrement, increment } from "./component/features/counter/counterSlice"
+import Posts from "./component/Posts"
 
 
 
@@ -20,7 +21,7 @@ const handleDecrement = (id) => {
   
 
   return (
-    <div className="w-full h-screen p-10 bg-gray-100 text-slate-700">
+    <div className="w-full min-h-screen p-10 bg-gray-100 text-slate-700">
       <h1 className='max-w-md mx-auto text-center text-2xl font-bold'>Simple Counter Application</h1>
       <div className="max-w-md mx-auto mt-10 space-y-5">
         {
@@ -28,6 +29,7 @@ const handleDecrement = (id) => {
         }
         <Stats count={totalCount}></Stats>
       </div>
+      <Posts></Posts>
     </div>
   )
 }
