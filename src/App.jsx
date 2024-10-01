@@ -1,30 +1,19 @@
-import { useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux"
 import Counter from "./component/Counter"
 import Stats from "./component/Stats"
+import { decrement, increment } from "./component/features/counter/counterSlice"
 
 
 
 function App() {
-  const [count , setCount] = useState(initialCounter);
+  const count = useSelector((state) => state.counters)
+  const dispatch = useDispatch()
   const handleIncrement = (id) => {
-    const updateCount = count.map(item =>{ 
-      if(item.id === id){
-        return {...item , value: item.value + 1 }
-    }
-    return item
-  })
-  setCount(updateCount)
-   
+    dispatch(increment(id))
 }
 const handleDecrement = (id) => {
-  const updateCount = count.map(item =>{ 
-    if(item.id === id){
-    return {...item , value: item.value - 1 }
-}
-return item
-})
-setCount(updateCount)
-   
+  dispatch(decrement(id)) 
 }
   const totalCount = count.reduce((accumulator, currentValue) => accumulator + currentValue.value , 0 )
 
